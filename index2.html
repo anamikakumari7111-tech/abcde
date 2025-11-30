@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Div Background & Text Controller</title>
+  <style>
+    #content-box {
+      width: 300px;
+      padding: 20px;
+      background-color: lightgray;
+      border: 2px solid black;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Interactive Div Controller</h2>
+
+  <!-- Input for color -->
+  <input id="color-input" type="text" placeholder="Enter a color name (e.g., red)">
+  <button id="bg-btn">Change Background</button>
+
+  <br><br>
+
+  <!-- Input for text -->
+  <input id="text-input" type="text" placeholder="Enter new text">
+  <button id="text-btn">Update Text</button>
+
+  <!-- Div to update -->
+  <div id="content-box">This is the initial text inside the div.</div>
+
+  <script>
+    const colorInput = document.getElementById("color-input");
+    const textInput = document.getElementById("text-input");
+    const box = document.getElementById("content-box");
+
+    const bgButton = document.getElementById("bg-btn");
+    const textButton = document.getElementById("text-btn");
+
+    // Function to validate CSS color names
+    function isValidColor(color) {
+      const test = new Option().style;
+      test.color = color;
+      return test.color !== "";
+    }
+
+    // Change background color
+    bgButton.addEventListener("click", () => {
+      const color = colorInput.value.trim();
+
+      if (isValidColor(color)) {
+        box.style.backgroundColor = color;
+      } else {
+        alert("Invalid color name!");
+      }
+    });
+
+    // Update text inside the div
+    textButton.addEventListener("click", () => {
+      const text = textInput.value.trim();
+
+      if (text === "") {
+        alert("Please enter some text!");
+      } else {
+        box.textContent = text;
+      }
+    });
+  </script>
+
+</body>
+</html>
