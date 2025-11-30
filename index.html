@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Demo</title>
+  <style>
+    .container {
+      padding: 15px;
+      border: 1px solid #000;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="main-title">Original Title</h1>
+
+  <p>This is paragraph one.</p>
+  <p>This is paragraph two.</p>
+  <p>This is paragraph three.</p>
+
+  <div class="container">
+    <p>Content inside container.</p>
+  </div>
+
+  <script>
+    // 1. Select the <h1> by id and change its text
+    const title = document.getElementById("main-title");
+    title.textContent = "Welcome to the DOM World!";
+
+    // 2. Select all <p> elements and set text color to blue
+    const paragraphs = document.getElementsByTagName("p");
+    for (let p of paragraphs) {
+      p.style.color = "blue";
+    }
+
+    // 3. Use querySelector to select the first .container div
+    const containerDiv = document.querySelector(".container");
+    containerDiv.style.backgroundColor = "yellow";
+  </script>
+
+</body>
+</html>
